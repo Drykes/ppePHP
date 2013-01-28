@@ -1,0 +1,51 @@
+body {
+	margin:auto;
+	width:90%
+}
+h1 {
+	text-align:center;
+}
+table {
+	border: solid 2px;
+	border-collapse: collapse;
+}
+td, th {
+	border: solid 2px;
+}
+td a {
+	display: inline-block;
+	width: 350px;
+}
+h3 {
+	margin-left: -75px;
+}
+.nom {
+	width:100px;
+}
+.resume {
+	margin-left: 100px;
+}
+.sous-fichier {
+	margin-left: 25px;
+}
+.dossier, .fichier, .sous-fichier{
+	vertical-align: top;
+}
+.dossier::before {
+	content: url('../img/dossier.gif');
+}
+.php::before {
+	content: url('../img/php.gif');
+}
+.css::before {
+	content: url('../img/css.gif');
+}
+.js::before {
+	content: url('../img/js.gif');
+}
+.htaccess::before {
+	content: url('../img/htaccess.gif');
+}
+h2 {
+	vertical-align:top;
+}

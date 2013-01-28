@@ -1,0 +1,14 @@
+
+ErrorDocument 404 /index.php?page=7
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase /
+	RewriteRule ^recuperation\.php$   index.php?page=0	[L] 
+	RewriteRule ^accueil\.php$   index.php?page=1	[L]  
+	RewriteRule ^accueil\.php$   index.php	[L] 
+	RewriteRule ^saisie\.php$   index.php?page=2	[L]  
+	RewriteRule ^recap\.php$   index.php?page=3 	[L]
+	RewriteRule ^administration\.php$   index.php?page=4	[L]  
+	RewriteRule ^profil\.php$   index.php?page=5	[L] 
+</IfModule>

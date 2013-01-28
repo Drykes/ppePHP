@@ -1,0 +1,424 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<title></title>
+		
+		<link rel="stylesheet" media="screen" href="css/styles.css" />	
+		
+		<script src="js/jquery.js"></script>
+		
+		<script>
+		
+		function selection(id)
+			{
+				$("h2").css("background-color", "");
+				$(id).css("background-color", "red");
+			}
+		
+		</script>
+	</head>
+	<body id="body">
+		<h1>Documentation Application de gestion des prêts.</h1>
+		
+		
+		<h2>Détail de l'architecture des fichiers</h2>
+		
+		<span class="fichier htaccess"><a href="#htaccess" onclick="selection($(this).attr('href'));">.htaccess</a></span><br/>
+		<span class="fichier php"><a href="#index" onclick="selection($(this).attr('href'));">index.php</a></span><br/>
+		<span class="dossier">images</span><br/>
+		<span class="dossier">include</span><br/>
+			<span class="sous-fichier php"><a href="#conn_bdd" onclick="selection($(this).attr('href'));">conn_bdd.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#fonctions" onclick="selection($(this).attr('href'));">fonctions.php</a></span><br/>
+		<span class="dossier">scripts</span><br/>
+			<span class="sous-fichier js"><a href="#jquery" onclick="selection($(this).attr('href'));">jquery.js</a></span><br/>
+			<span class="sous-fichier js"><a href="#script_calendrier" onclick="selection($(this).attr('href'));">script_calendrier.js</a></span><br/>
+		<span class="dossier">styles</span><br/>
+			<span class="sous-fichier css"><a href="#caledrier-css" onclick="selection($(this).attr('href'));">calendrier.css</a></span><br/>
+			<span class="sous-fichier css"><a href="#styles-css" onclick="selection($(this).attr('href'));">styles.css</a></span><br/>
+			<span class="sous-fichier css"><a href="#styles-mobile-css" onclick="selection($(this).attr('href'));">styles-mobile.css</a></span><br/>
+		<span class="dossier">vue</span><br/>
+			<span class="sous-fichier php"><a href="#404" onclick="selection($(this).attr('href'));">404.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#accueil" onclick="selection($(this).attr('href'));">accueil.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#administration" onclick="selection($(this).attr('href'));">administration.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#entete" onclick="selection($(this).attr('href'));">entete.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#form_connexion" onclick="selection($(this).attr('href'));">form_connexion.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#form_recuperation" onclick="selection($(this).attr('href'));">form_recuperation.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#pied" onclick="selection($(this).attr('href'));">pied.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#profil" onclick="selection($(this).attr('href'));">profil.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#resume_prets" onclick="selection($(this).attr('href'));">resume_prets.php</a></span><br/>
+			<span class="sous-fichier php"><a href="#saisie_prets" onclick="selection($(this).attr('href'));">saisie_prets.php</a></span><br/>
+		<span class="dossier"><a href="#xajax" onclick="selection($(this).attr('href'));">xajax_controls</a></span><br/>
+		<span class="dossier"><a href="#xajax" onclick="selection($(this).attr('href'));">xajax_core</a></span><br/>
+		<span class="dossier"><a href="#xajax" onclick="selection($(this).attr('href'));">xajax_js</a></span><br/>
+		<span class="dossier"><a href="#xajax" onclick="selection($(this).attr('href'));">xajax_plugins</a></span><br/>
+		
+		<hr/>
+		
+		<h2 id="htaccess">.htaccess <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>C'est un fichier de configuration du serveur Web Apache. Placé à la racine, les configurations qu'il contient s'appliquent au répertoire en cours et à tous ceux qu'il contient.</p>
+		<p>Ce fichier contient les instructions pour l'URL Rewriting.</p>
+		
+		<hr/>
+		
+		<h2 id="index">index.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Ce fichier comporte la structure générale de l'application. Il s'occupe d'afficher le contenu de la bonne page ou encore d'afficher l'entête et le pied de page</p>
+		
+		<hr/>
+		
+		<h2 id="conn_bdd">conn_bdd.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier comportant les données concernant la connexion à la base de données. Il Contient également l'instanciation de l'objet PDO</p>
+
+		<hr/>
+		
+		<h2 id="fonctions">fonctions.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Ce fichier comporte toutes les fonctions et méthodes de l'application</p>
+		
+		<table>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#connexion" ><b>connexion</b>($a, $b, $location)</a></td>
+				<td>Cette méthode est appelée en ajax. Elle retourne un message indiquant si les identifiants sont corrects ou pas. Si les identifiants sont corrects, la personne en est informée et est redirigée sur sa page en cours.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#importe_ajax_function" ></b>importe_ajax_function<b>($id_page,$xajax)</a></td>
+				<td>Cette méthode est appelée à chaque chargement d'une page afin d'importer les fonctions xajax nécessaires pour une page donnée.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#afficher" ><b>afficher</b>($id_page)</a></td>
+				<td>Méthode qui en fonction de l'identifiant de la page, passé en paramètres affiche le contenu de la page.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#charger" ><b>charger</b>($a)</a></td>
+				<td>Méthode qui permet d'avoir une liste des suggestions des personnes en ajax. Elle prend en paramètre le début du nom qui a été saisi et renvoie une liste des couples "Nom Prénom".</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#resumer" ><b>resumer($id)</b></a></td>
+				<td>Cette méthode prend en paramètre l'identifiant de la personne et retourne en ajax un résumé sous forme des tableaux des prêts la concernant.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#saisiePret" ><b>saisiePret</b>($id_personne="", $materiel, $lic_duree, $lic_version, $marque, $type, $date_circulation, $garantie, $nom_licence_duree, $debut_licence, $duree_licence, $nom_licence_version, $lic_duree_associe, $lic_version_associe, $nom_licence_duree_associe, $debut_licence_associe, $duree_licence_associe, $nom_licence_version_associe, $nvl_marque)</a></td>
+				<td>Méthode utilisée en ajax pour valider et enregistrer un prêt.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#supp_materiel" ><b>supp_materiel</b>($id_personne,$id_materiel)</a></td>
+				<td>Méthode utilisée en ajax. Elle prend en paramètre les identifiants du matériel et de la personne pour effectuer une suppression du prêt.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#supp_lic_duree" ><b>supp_lic_duree</b>($id_personne, $id_lic_duree, $msg, $appel_depuis_ajax)</a></td>
+				<td>Méthode utilisée également en ajax, permet de supprimer une licence de durée. Elle peut être appelée depuis la methode supp_materiel() pour supprimer les licences de durée associées à ce matériel, dans quel cas le paramètre $appel_depuis_ajax sera égale à false.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#supp_lic_version" ><b>supp_lic_version</b>($id_personne, $id_lic_version, $msg,$appel_depuis_ajax)</a></td>
+				<td>Méthode utilisée également en ajax, permet de supprimer une licence de version. Elle peut être appelée depuis la methode supp_materiel() pour supprimer les licences de version associées à ce matériel, dans quel cas le paramètre $appel_depuis_ajax sera égale à false.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#nvo_utilisateur" ><b>nvo_utilisateur</b>($type_utilisateur, $nom, $prenom, $mail, $login_personne="", $motdepasse="", $mdp_confirm="")</a></td>
+				<td>Cette méthode est utilisée en ajax. Elle permet de vérifier et enregistrer un nouvel utilisateur</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#changer_mdp" ><b>changer_mdp</b>($ancien_mdp, $nvo_mdp, $confirm_nvo_mdp)</a></td>
+				<td>Méthode appelée en ajax. Elle permet de vérifier et midifier le mot de passe.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#deconnexion" ><b>deconnexion</b>()</td>
+				<td>Méthode appellée en ajax, permet de détruir la session en cours donc de déconnecter la personne.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#modifier_licence" ><b>modifier_licence</b>($pers_concerne, $type_licence, $id_licence, $nom_licence, $date_debut)</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#frm_modif_licence" ><b>frm_modif_licence</b>($type_licence, $id_licence)</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#recuperation" ><b>recuperation</b>($mail)</a></td>
+				<td>Méthode appelée en ajax, permet de vérifier si le mail passé en paramètres existe dans la base de données, générer un nouveau mot de passe et l'envoyer par mail.</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#genere_mdp" ><b>genere_mdp</b>()</a></td>
+				<td>Méthode qui génére et retourne un mot de passe. Elle est appelée à partir de la methode recuperation()</td>
+			</tr>
+			<tr>
+				<td class="nom"><a href="#envoyer_mail" ><b>envoyer_mail</b>($destinataire, $login, $mdp)</a></td>
+				<td>Méthode qui envoit un mail à la personne qui souhaite récupèrer son mot de passe. Elle est appelée à partir de la méthode recupèration().</td>
+			</tr>
+		</table>
+		
+		
+		<h2>Détails des méthodes :</h2>
+		
+		<div id="connexion" class="resume">
+			<h3>connexion</h3>
+			<p>Fonction qui permet l'identification des utilisateurs</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$a : </b> Le login entré par l'utilisateur</li>
+					<li><b>$b : </b> Le mot de passe entré par l'utilisateur</li>
+					<li><b>$location : </b> La page sur laquelle le formulaire est affiché (pour rediriger l'utilisateur après la connexion)</li>
+				</ul>
+			<p><b>Retourne : </b>Un message indiquant si la personne est identifiée ou pas. Si la personne est trouvée dans la base elle est redirigée sur la page demandée</p>
+		</div>
+		<div id="importe_ajax_function" class="resume">
+			<h3>importe_ajax_function</h3>
+			<p>Fonction qui permet de déclarer les fonctions ajax en fonction de la page visitée</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id_page : </b>Identifiant de la page en cours</li>
+					<li><b>$xajax : </b>L'objet xajax sur lequel on effectue les actions (ajout de fonctions)</li>
+				</ul>
+		</div>
+		<div id="afficher" class="resume">
+			<h3>afficher</h3>
+			<p>Affiche le contenu de la page demandée</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id_page : </b>Identifiant de la page dont on souhaite afficher le cotenu</li>
+				</ul>
+		</div>
+		<div id="charger" class="resume">
+			<h3>charger</h3>
+			<p>Afficher une liste des suggestions de personnes</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$a : </b>La chaine de caractères entrée par l'utilisateur</li>
+				</ul>
+			<p><b>Retourne : </b>Liste des personnes(html)</p>
+		</div>
+		<div id="resumer" class="resume">
+			<h3>resumer</h3>
+			<p>Afficher un résumé sur les matériels et les licences empruntés</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id : </b>L'identifiant de la personne</li>
+				</ul>
+			<p><b>Retourne : </b>Les tableaux récapitulatifs (html)</p>
+		</div>
+		<div id="saisiePret" class="resume">
+			<h3>saisiePret</h3>
+			<p>Enregistrer un prêt de matériel ou de licence (les licences peuvent être associées au matériels)</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id_personne : </b>Identifiant de la personne à qui on effectue un prêt</li>
+					<li><b>$materiel : </b>Est-ce un prêt de matériel (VRAI/FAUX)</li>
+					<li><b>$lic_duree : </b>Est-ce un prêt de licence de durée (VRAI/FAUX)</li>
+					<li><b>$lic_version : </b>Est-ce un prêt de licence de version (VRAI/FAUX)</li>
+					<li><b>$marque : </b>Numéro de la marque (indice dans la liste déroulante)</li>
+					<li><b>$type : </b>Numéro du type de matériel (indice dans liste déroulante)</li>
+					<li><b>$date_circulation : </b>Date de mise en circulation du matérel</li>
+					<li><b>$garantie : </b>Nombre d'années de garantie du matériel</li>
+					<li><b>$nom_licence_duree : </b>Nom de la licence de durée</li>
+					<li><b>$debut_licence : </b>Date de début de la licence de durée</li>
+					<li><b>$duree_licence : </b>Durée de la licence (en années)</li>
+					<li><b>$nom_licence_version : </b>Nom de la licence de version</li>
+					<li><b>$lic_duree_associe : </b>Est-ce qu'il y a une association d'une licence de durée (VRAI/FAUX)</li>
+					<li><b>$lic_version_associe : </b>Est-ce qu'il y a une association d'une licence de version (VRAI/FAUX)</li>
+					<li><b>$nom_licence_duree_associe : </b>Nom de la licence de durée associée au matériel</li>
+					<li><b>$debut_licence_associe : </b>La date de début de la licence de durée associée au matériel</li>
+					<li><b>$duree_licence_associe : </b>Durée de la licence de durée associée au matériel</li>
+					<li><b>$nom_licence_version_associe : </b>Nom de la licence de version associée au matériel</li>
+					<li><b>$nvl_marque : </b>Le nom de la nouvelle marque (s'il y en a une)</li>
+				</ul>
+			<p><b>Retourne : </b>Un message informant de la réussite ou de l'echec de l'enregistrement</p>
+		</div>
+		<div id="supp_materiel" class="resume">
+			<h3>supp_materiel</h3>
+			<p>Supprimer un matériel prêté</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id_personne : </b>Identifiant de la personne concernée</li>
+					<li><b>$id_materiel : </b>Identifiant du matériel à supprimer</li>
+				</ul>
+			<p><b>Retourne : </b>Message informant de la réussite ou de l'echec</p>
+		</div>
+		<div id="supp_lic_duree" class="resume">
+			<h3>supp_lic_duree</h3>
+			<p>Supprimer une licence de durée</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id_personne : </b>Identifiant de la personne concernée</li>
+					<li><b>$id_lic_duree : </b>Identifiant de la licence de durée à supprimer</li>
+					<li><b>$msg : </b>Ce paramètre est utile seulement si la fonction est appelée à partir de <a href="#supp_materiel">supp_materiel()</a>. C'est les messages concernant la réussite ou l'échec de la suppression du matériel associé</li>
+					<li><b>$appel_depuis_ajax : </b>Faux si la fonction est appellée à partir de <a href="#supp_materiel">supp_materiel()</a> et Vrai dans les autres cas. Sert à déterminer s'il faut effectuer une réponse en ajax ou pas</li>
+				</ul>
+			<p><b>Retourne : </b>Message informant de la réussite ou de l'echec</p>
+		</div>
+		<div id="supp_lic_version" class="resume">
+			<h3>supp_lic_version</h3>
+			<p>Supprimer une licence de version</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$id_personne : </b>Identifiant de la personne concernée</li>
+					<li><b>$id_lic_version : </b>Identifiant de la licence de version à supprimer</li>
+					<li><b>$msg : </b>Ce paramètre est utile seulement si la fonction est appelée à partir de <a href="#supp_materiel">supp_materiel()</a>. C'est les messages concernant la réussite ou l'échec de la suppression du matériel associé</li>
+					<li><b>$appel_depuis_ajax : </b>Faux si la fonction est appelée à partir de <a href="#supp_materiel">supp_materiel()</a> et Vrai dans les autres cas. Sert à déterminer s'il faut effectuer une réponse en ajax ou pas</li>
+				</ul>
+			<p><b>Retourne : </b>Message informant de la réussite ou de l'echec</p>
+		</div>
+		<div id="nvo_utilisateur" class="resume">
+			<h3>nvo_utilisateur</h3>
+			<p>Créer un nouvel utilisateur</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$type_utilisateur : </b>Le type du nouvel utilisateur </li>
+					<li><b>$nom : </b>Le nom du nouvel utilisateur</li>
+					<li><b>$prenom : </b>Le prénom du nouvel utilisateur</li>
+					<li><b>$mail : </b>Le mail du nouvel utilisateur</li>
+					<li><b>$login_personne : </b>Le login du nouvel utilisateur</li>
+					<li><b>$motdepasse : </b>Le mot de passe du nouvel utilisateur</li>
+					<li><b>$mdp_confirm : </b>La confirmation du mot de passe du nouvel utilisateur</li>
+				</ul>
+			<p><b>Retourne : </b>Message indiquant la réussite ou l'échec de la création du nouvel utilisateur</p>
+		</div>
+		<div id="changer_mdp" class="resume">
+			<h3>changer_mdp</h3>
+			<p>Modifier le mot de passe du compte connecté actuellement</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$ancien_mdp : </b>L'ancien mot de passe de l'utilisateur</li>
+					<li><b>$nvo_mdp : </b>Le nouveau mot de passe de l'utilisateur</li>
+					<li><b>$confirm_nvo_mdp : </b>La confirmation du nouveau mot de passe</li>
+				</ul>
+			<p><b>Retourne : </b>Message indiquant la réussite ou l'échec du changement de mot de passe</p>
+		</div>
+		<div id="deconnexion" class="resume">
+			<h3>deconnexion</h3>
+			<p>Destruction de la session de l'utilisateur</p>
+			<p><b>Retourne : </b>Redirection sur la page d'accueil</p>
+		</div>
+		<div id="modifier_licence" class="resume">
+			<h3>modifier_licence</h3>
+			<p>Modifier les données de d'une licence</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$pers_concerne : </b>   </li>
+					<li><b>$type_licence : </b>   </li>
+					<li><b>$id_licence : </b>Identifiant de la licence</li>
+					<li><b>$nom_licence : </b>Le nom de la licence</li>
+					<li><b>$date_debut : </b>La date du début de la licence</li>
+				</ul>
+			<p><b>Retourne : </b>Message indiquant la réussite ou l'échec de la mise à jour de la licence</p>
+		</div>
+		<div id="frm_modif_licence" class="resume">
+			<h3>frm_modif_licence</h3>
+			<p>Afficher un formulair prérempli pour modifier une licence</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$type_licence : </b>Le type de la licence qu'on souhaite modifier (0:durée 1:version)</li>
+					<li><b>$id_licence : </b>Identifiant de la licence qu'on veut modifier</li>
+					<li><b></b>   </li>
+				</ul>
+			<p><b>Retourne : </b>Formulaire pré rempli</p>
+		</div>
+		<div id="recuperation" class="resume">
+			<h3>récuperation</h3>
+			<p>Méthode qui permet de reconnaitre l'utilisateur à partir de son email, de générer un nouveau mot de passe et l'envoyer par mail à l'utilisateur</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$mail : </b>Le mail de la personne qui souhaite retrouver son mot de passe</li>
+				</ul>
+			<b>Retourne : </b>
+		</div>
+		<div id="genere_mdp" class="resume">
+			<h3>genere_mdp</h3>
+			<p>Générer un nouveau mot de passe</p>
+			<p><b>Retourne : </b>Nouveau mot de passe généré</p>
+		</div>
+		<div id="envoyer_mail" class="resume">
+			<h3>envoyer_mail</h3>
+			<p>Envoyer un mail</p>
+			<b>Paramètres : </b>
+				<ul>
+					<li><b>$destinataire : </b>L'email de la personne à qui envoyer le mail</li>
+					<li><b>$login : </b>Le login de la personne à qui on envoi l'email</li>
+					<li><b>$mdp : </b>Le nouveau mot de passe </li>
+				</ul>
+			<p><b>Retourne : </b>Vrai si le mail a bien été envoyé et Faux dans le cas contrair</p>
+		</div>
+		
+		<hr/>		
+		
+		<h2 id="jquery">jquery.js <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Une bibliothèque JavaScript qui a pour but de simplifier les commandes communes de JavaScript.</p>
+		
+		<hr/>
+		
+		<h2 id="script_calendrier">script_calendrier.js <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Script pour le calendrier. Facilite la saisie des dates dans les champs spécifiques.</p>
+		
+		<hr/>
+		
+		<h2 id="calendrier-css">calendrier.css <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Les styles pour le calendrier.</p>
+		
+		<hr/>
+		
+		<h2 id="styles-css">styles.css <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier comportant tous les styles du site web</p>
+		
+		<hr/>
+		
+		<h2 id="styles-mobile-css">styles-mobile.css <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier de styles pour les appareils mobiles</p>
+		
+		<hr/>
+		
+		<h2 id="404">404.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui contient le contenu de la page d'erreur 404, c'est-à-dire un message indiquant que la page est introuvable</p>
+		
+		<hr/>
+		
+		<h2 id="accueil">accueil.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui contient le contenu de la page d'accueil, c'est-à-dire quelque données statistiques sous forme d'un tableau de bord</p>
+		
+		<hr/>
+		
+		<h2 id="administration">administration.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte le contenu de la page d'administration, c'est-à-dire le formulaire de création d'un nouvel utilisateur</p>
+		
+		<hr/>
+		
+		<h2 id="entete">entete.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte l'entête du site : le logo, le menu, le nom de l'utilisateur connecté et le bouton de déconnexion</p>
+		
+		<hr/>
+		
+		<h2 id="form_connexion">form_connexion.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte le formulaire de connexion en html</p>
+		
+		<hr/>
+		
+		<h2 id="form_recuperation">form_recuperation.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte le formulaire de récupération du mot de passe en html</p>
+		
+		<hr/>
+		
+		<h2 id="pied">pied.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte le pied de page en html</p>
+		
+		<hr/>
+		
+		<h2 id="profil">profil.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte le contenu de la page profil, c'est-à-dire le formulaire pour changer le mot de passe</p>
+		
+		<hr/>
+		
+		<h2 id="resume_prets">resume_prets.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui comporte la structure de la page récapitulative des prêts, notamment le champ de saisie du nom de l'utilisateur</p>
+		
+		<hr/>
+		
+		<h2 id="saisie_prets">saisie_prets.php <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Fichier qui contient le formulaire de saisie d'un prêt</p>
+		
+		<hr/>
+		
+		<h2 id="xajax" onclick="selection(this.id);">xAJAX <a href="#body"><img src="img/home.gif" /></a></h2>
+		<p>Le framework xajax est composé de quatre dossiers : xajax_controls, xajax_core, xajax_js, xajax_plugins</p>
+		
+	</body>
+</html>

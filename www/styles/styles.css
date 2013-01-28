@@ -1,0 +1,252 @@
+body{
+	background-color : #C0E3F7;
+}
+
+.tab_recap{
+	border : solid 2px;
+	border-collapse: collapse;
+}
+
+.tab_recap td,.tab_recap th{
+	border : solid 2px;
+}
+
+#info {
+	color:red;
+	text-align:left;
+}
+
+#popup {
+	display: block;
+	z-index: 100;
+	outline: 0px;
+	position: fixed;
+	left: 50%;
+	right: 50%;
+	margin-top: -150px;
+	margin-left: -150px;
+	top: 50%;
+	width: 300px;
+	height: 300px;
+	background-color: #C0E3F7;
+	border: solid 2px;
+	box-shadow: 100px -0px 0 2000px rgba(60, 60, 60, .8);
+}
+
+#header, #footer, #contenu{
+	padding:10px;
+	border : 2px solid ;
+	background-color : #CECECE;
+	border-collapse: collapse;
+	margin:auto;
+	width: 80%;
+	max-width:;
+	min-width: 900px;
+}
+
+#contenu {
+	min-height: 200px;
+	text-align:center;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+
+#contenu table {
+	margin:auto;
+
+}
+
+#header #logo {
+	width: 240px;
+	vertical-align:top;
+}
+
+#header #logo img{
+	width:240px;
+	height:150px;
+}
+
+#header tr {
+	margin:auto;
+	padding:auto;
+}
+
+#header #infos {
+	text-align:center;
+	width: 200px;
+	vertical-align:center;
+	padding-left : 20px;
+	padding-right : 20px;
+}
+
+#footer {
+	height:20px;
+	color : black;
+}
+
+#footer #div1{
+	float:left;
+}
+#footer #div2{
+	float:right;
+}
+
+#tableauheader {
+	width:100%
+}
+
+
+li a:link {color: white ; text-decoration: none ;}
+li a:hover {color:  #1560BD /*#3A8EBA*/}
+
+
+/*Block de suggestion des noms*/
+
+#noms {
+	text-align:left;
+	position: relative;
+	margin: 2px auto;
+	width: 200px;
+	background-color: #212427;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	color: #fff; 	
+}
+
+#noms span {
+	padding:auto;
+	width:200px;
+	text-align:left;
+	padding-left:10px;
+}
+
+#noms span:hover {
+	color:blue;
+	cursor:pointer;
+}
+
+
+
+a {
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}
+
+a:hover {
+	color:blueviolet;
+	text-decoration:none;
+}
+
+
+
+#alert {
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: gray;
+    width: 300px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -150px;
+}
+
+/*---------------MENU---------------------*/
+
+#menu {
+text-align:center;
+padding: 0;
+background: #CECECE;
+height: 18px;
+}
+
+#menu ol {
+margin: 0px;
+padding: 1px 0px;
+display: inline-block;
+}
+
+#menu ol li {
+list-style: none;
+float: left;
+}
+
+#menu a {
+margin: 0px;
+display: block;
+border-bottom: 1px solid white;
+padding: 2px 6px;
+text-decoration: none;
+background: #333333;
+font: normal 12px verdana, serif;
+color: white;
+}
+
+#menu a:hover, #menu #encours a{
+padding: 2px 5px 0 5px;
+background: black;
+border-right: 1px solid white;
+border-left: 1px solid white;
+border-bottom: 1px solid #CECECE;
+border-top: 1px solid white;
+color: #67C8F2;
+}
+
+#menu #encours a {
+background: black;
+border-bottom: 1px solid white;
+font-weight: bold;
+}
+
+#menu li#encours
+{
+height:18px;
+border-right: 2px solid #828282;
+border-bottom: 2px solid #828282;
+}
+
+
+/*--------------------------------*/
+
+
+/* POUR FAIRE FLOTTER LER MESSAGES EN BAS A DROITE DE LA FENETRE
+
+
+#msg {
+position: fixed;
+bottom: 10px;
+right: 10px;
+}
+*/
+
+
+
+.info, .success, .warning, .error, .validation {
+	text-align:left;
+	width:350px;
+    border: 1px solid;
+    margin: 10px auto auto auto;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('../images/info.png');
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('../images/warning.png');
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../images/error.png');
+}
